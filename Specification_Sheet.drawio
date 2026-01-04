@@ -76,9 +76,6 @@
         <mxCell id="Vz7gd8aglgsGskFSatYc-8" value="&amp;amp;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="130" y="80" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="Vz7gd8aglgsGskFSatYc-10" value="Scatter Plot" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="370" y="80" width="230" height="230" as="geometry" />
-        </mxCell>
         <mxCell id="Vz7gd8aglgsGskFSatYc-17" value="&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Dashboard&lt;/font&gt;&lt;/b&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="10" y="810" width="660" height="40" as="geometry" />
         </mxCell>
@@ -242,13 +239,13 @@
           <mxGeometry x="100" y="540" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Vz7gd8aglgsGskFSatYc-102" value="r =&lt;br&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;0.55&lt;/font&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="370" y="320" width="70" height="40" as="geometry" />
+          <mxGeometry x="600" y="80" width="70" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Vz7gd8aglgsGskFSatYc-103" value="r² =&lt;br&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;0.30&lt;/font&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="450" y="320" width="70" height="40" as="geometry" />
+          <mxGeometry x="600" y="140" width="70" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Vz7gd8aglgsGskFSatYc-104" value="\rho =&lt;br&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;0.61&lt;/font&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="530" y="320" width="70" height="40" as="geometry" />
+          <mxGeometry x="600" y="200" width="70" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Vz7gd8aglgsGskFSatYc-106" value="75%-Quartil 1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="10" y="210" width="120" height="30" as="geometry" />
@@ -288,6 +285,12 @@
         </mxCell>
         <mxCell id="Vz7gd8aglgsGskFSatYc-128" value="KPI 2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="190" y="1120" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Vz7gd8aglgsGskFSatYc-129" value="Scatter Plot" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="80" width="210" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="Vz7gd8aglgsGskFSatYc-131" value="Correlation Matrix" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="255" width="300" height="135" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
