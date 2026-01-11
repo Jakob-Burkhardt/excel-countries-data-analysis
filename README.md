@@ -69,3 +69,19 @@ To handle the entries that didn't match, you can replace the names of the countr
 * ...
 
 Before loading the data, you may also delete unnecessary or double columns, change columns or their names, name transformations, set correct data types, and much more. You should never perfom any changes in the table you load into a spreadsheet! If you want to make changes using the Power Query editor later, the changes made in the sheet will be overwritten and won't apply to your data anymore.
+
+## First Dashboard (Best Country)
+
+<img src="Images/Screenshot_Best_Country.png" width="1000">
+
+To get started, add two sheets to your workbook containing the data: One for the dashboad (`Best Country`), another for the calculations in the backgrond (`Best Country (help)`). In the help-sheet, you can now insert the data for this dashboard using dynamic arrays: `=IF(main_table[HDI (2023)]<>0; main_table[HDI (2023)]; "")`. The if-condition ensures that all empty entries which may contian a '0' will be cleared entirely. This is important, because we don't want cells containing '0' , as they would skew the calculations. Now, add new columns with standarsized values from 0 to 1: `=IFERROR((L5-MIN(L5#))/(MAX(L5#)-MIN(L5#)); "")`. You can also save the min- and max-values in separate cells to keep it tidy. If it is bad for the metric to have an high value (e. g. Gini coefficient), add `1-` before the calculation, because we want the standarsized values to go from 0 (bad) to 1 (good). The rating for each country is calculated as a weighted average of all standarsized metrics times 100:
+$$\frac{\text{metric}_1\cdot\text{weight}_1 + ... + \text{metric}_n\cdot\text{weight}_n}{\text{weight}_1 + ... + \text{weight}_n}\cdot 100$$
+The user can input the weights via spin buttons. To insert a spin button, you must first unhide the developer tab. Now you can insert form controls like spin buttons and connect them to a cell. You may also use scroll bars, but they don't tend to run as smoothly as spin buttons. In general, those form controls are very old Excel features and are not always integrated as smoothly as others. The data bars next to the spin buttons are conditionally formatted cells, depending on the value of the spin button.
+
+Next, to only allow the use to enter certain values into the continent and diagram type selection, you can use data validation with a list of possible options on the help-sheet. Now filter the contries on the selected continent like so: `=FILTER(H5#; ((A34="World") + (A34=G5#)) * (I5:I238<>""))`. In my case, `A34` is the selected continent, `G5#` are the continents, `H5#` the countries and `I5:I238` the ratings. In calculations like this, Excel treats the value `TRUE` as 1 and `FALSE` as 0. `<>` is the negation-operator. Filter the ratings analogously. You can now link the country with the highest rating and the rating itself to your dashboard. To add KPIs (standarsized metrics) use `XLOOKUP()` to locate them and `ROUND()` to display as many digits as you please.
+
+For the diagrams, I'd recommend to create a new sheet to keep things in perspective. Create both diagrams (or more) on the new sheet and style them as you like. Now copy the range of cells of one of your diagrams and paste it on the dashboard as a linked picture: `Right Click -> Paste Special -> Linked Picture`. Use the name manager to create a new name with the following condition: `=IF('Best Country'!$L$3="Map"; 'Best Country (diagrams)'!$A$1:$G$19; 'Best Country (diagrams)'!$A$22:$G$40)`. You now only have to insert the name you just set for the condition into the linked pictures formular bar and you first dashboard is finished.
+
+## Second Dashboard (Correlations)
+
+<img src="Images/Screenshot_Correlations.png" width="1000">
