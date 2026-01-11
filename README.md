@@ -25,11 +25,27 @@ Why did I use Excel for this and not a BI-tool like Tableau or Power BI? This pr
 
 Before I began collecting data, I drew basic templates for the dashboards in draw.io, to define what I wanted them to look like. Why did I not build the dashboards from scratch in Excel? Two reasons:
 
-1. The situation of being given a task in a certain scope is very likely to occur in most jobs, which makes this project good practice for professional life.
-2. When doing something, without a goal, one tends to do what works easily in the given circumstances without learning a lot. When doing something with a goal, one will make the goal possible which may involve changing the circumstances.
+1. Being given a task within a specific scope is a common occurrence in most jobs, which makes this project a valuable learning experience for the professional world.
+2. Without a goal, one tends to do whatever works easily in the given circumstances without learning much. However, when doing something with a goal, one will make it possible, which may involve changing the circumstances.
 
-The first dashboard is supposed to
+For the analysis the following data are of interest:
+
+* **Continent** of each country as a nominal variable that allows filtering
+* **Population** as the central metric variable to classify countries
+* **GDP** (gross domestic product) and **GNI** (gross national income) per capita to roughly measure income (or rather the average economic output of each person)
+* **Gini coefficient** to measure income inequality
+* **HDI** (human development index)
+* The Economists **Big Mac index** to indicate wheter a country holds an over- or undervalued currency
+* Mean years of **life expectancy** and **schooling**
+* **Safety**, **health care** and **happieness** to measure quality of life
+* ...
+
+The **first dashboard** is supposed to give the user an idea of how countries compare, depending on what is important to the user. Therefore, there are sliders on the left to weight different metrics on a scale from 0 to 10. In the background (on a seperate, hidden sheet), a rating will be calculated on a scale from 0 to 100 that includes the given weights. The country with the highest rating will be displayed with its overall rating and other KPIs which describe the metrics (also on a scale from 0 to 100). The KPIs change their color depending on the rating. Furthermore, the user may filter a specific continent and a diagram that is being displayed in the middle of the dashboard (map or bar chart).
 
 <img src="Images/Template_Best_Country.png" width="500">
 
+The **second dashboard** is rather on the technical side: It compares two different metrics, that the user is interested in. Several statistical variables that are calculated using all countries data are shown below the metrics. Two boxplots provide a concise overview of the distributions. On the right-hand side, there is a scatter plot to visualize the correlation between the selected metrics and a correlation matrix to show the correlations of all metrics (independent of the selection). Key insights at the bottom explain the selected metrics and the strength of the correlation for non-nerds.
+
 <img src="Images/Template_Correlations.png" width="500">
+
+## Data scraping and cleaning
