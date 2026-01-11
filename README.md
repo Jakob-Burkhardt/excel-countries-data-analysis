@@ -48,4 +48,24 @@ The **second dashboard** is rather on the technical side: It compares two differ
 
 <img src="Images/Template_Correlations.png" width="500">
 
-## Data scraping and cleaning
+## Data collection and cleansing
+
+For data collection, you can use Excels feature to get data from the web: `Data -> Get Data -> From Other Sources -> From Web`. After adding an URL, Excels Power Query engine will extract the tables from the website by searching for HTML-tags such as `<table>`. You may now select the table you want to extract and save it locally as an Exce-file (in my repository the data is saved in the folder `'Separate_Data'`).
+
+To merge the tables from sepatate tables/files into a "mother-table" that contains all data you can use the Power Query editor. First, you have to create connections for every file to later edit and transform them using Power Query: `Data -> Get Data -> From File -> From Excel Workbook -> Import -> Load to... -> Only Create Connection -> OK`. By double clicking on one of the queries in the right column, you will open the Power Query editor. Now you can merge the queries by navigating to `Home -> Merge Queries`. It makes sense to start from the the dataset with the most entries (in our case the countries by continent) to set a standard for the common column and successively merge the smaller datasets into the main one. You can now select the second table to merge with and the column, both tables share (the country-column). To not lose any data, you should select 'Full Outer' as a join type, as it keeps all rows from both tables.
+
+<img src="Images/Join_Types.png" width="500">
+
+I'd also not recommend the fuzzy matching, to stay in full control and get a better understanding of how to manually clean data.
+
+To handle the entries that didn't match, you can replace the names of the countries in the newly merged table with the ones of the main table. Every change/transformation generates a new step in the column on the right and can be edited there or even be coded manually, if you are familiar with the M language. Although you could do this in the main table, if you perform the changes in the newly merged, separate tables, you'll keep the main table clean. In our case, the coutries that are often refered to differently are as follows:
+
+* Czechia - Czech Republic - Czech Rep.
+* DR Congo - Democratic Republic of the Congo - Democratic Republic of Congo
+* Cape Verde - Capo Verde
+* Turkey - Türkiye
+* Unied Kingdom - Great Britain - Britain
+* United Arab Emirates - UAE
+* ...
+
+Before loading the data, you may also delete unnecessary or double columns, change columns or their names, name transformations, set correct data types, and much more. You should never perfom any changes in the table you load into a spreadsheet! If you want to make changes using the Power Query editor later, the changes made in the sheet will be overwritten and won't apply to your data anymore.
